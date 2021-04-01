@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="@dimen/padding"
+    android:orientation="vertical"
+    tools:context=".activity.DetailActivity">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_photo"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center"
+
+
+            android:src="@drawable/ic_launcher_background"
+            app:civ_circle_background_color="@color/white">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        style="@style/TextContent.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1"
+        android:text="@string/name"
+        android:gravity="center"
+        android:id="@+id/tv_name"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="6dp"
+        >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+
+        <net.steamcrafted.materialiconlib.MaterialIconView
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            app:materialIcon ="briefcase"
+            app:materialIconColor ="@android:color/black"
+            app:materialIconSize="12dp"
+
+            />
+        <TextView
+            style="@style/TextContent.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1"
+            android:text="@string/company"
+            android:id="@+id/tv_company"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="12sp"
+            />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+
+
+    <net.steamcrafted.materialiconlib.MaterialIconView
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        app:materialIcon ="home"
+        app:materialIconColor ="@android:color/black"
+        app:materialIconSize="12dp"
+        />
+
+    <TextView
+        style="@style/TextContent.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1"
+        android:text="@string/location"
+        android:id="@+id/tv_location"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="12sp"
+
+        />
+
+
+    </TableRow>
+    </TableLayout>
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@android:color/darker_gray"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     android:layout_margin="@dimen/padding"
+        android:gravity="center"
+        >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tv_repository"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="2"
+            android:text="@string/repository"
+            android:textAlignment="center"
+            style="@style/TextContent.Small"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/tv_followers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/followers"
+            android:layout_marginEnd="5dp"
+            android:textAlignment="center"
+            style="@style/TextContent.Small"
+            android:textStyle="bold"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/following"
+            android:textAlignment="center"
+            android:id="@+id/tv_following"
+            style="@style/TextContent.Small"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            style="@style/TextContent.Subtitle"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="2"
+            android:textAlignment="center"
+            android:text="@string/txt_repository"
+            android:textSize="14sp"/>
+
+        <TextView
+            style="@style/TextContent.Subtitle"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAlignment="center"
+
+            android:text="@string/txt_followers"
+            android:textSize="14sp"/>
+
+        <TextView
+            style="@style/TextContent.Subtitle"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAlignment="center"
+
+            android:text="@string/txt_following"
+            android:textSize="14sp"/>
+
+
+    </TableRow>
+    </TableLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+
+
+</LinearLayout>
+
