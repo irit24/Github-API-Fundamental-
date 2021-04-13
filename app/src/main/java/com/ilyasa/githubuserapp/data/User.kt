@@ -9,13 +9,19 @@ on 18,March,2021
  */
 
 @Parcelize
+
+
 data class User(
-        val username: String? = "ilyasa24",
-        val name: String? = "ilyasa",
-        val location: String? ="bandung",
-        val repository: String? = "",
-        val company: String? = "",
-        val followers: String? = "",
-        val following: String? = "",
-        val avatar: Int? = 0
-):Parcelable
+    var id: Int? = 0,
+    var username: String? = "",
+    var name: String? = "",
+    var location: String? = "",
+    var repository: String? = "",
+    var bio: String? = "",
+    var company: String? = "",
+    var followers: String? = "",
+    var following: String? = "",
+    var items: String? = "",
+    var link: String? = "",
+    var avatar_url: String? = ""
+) : Parcelable

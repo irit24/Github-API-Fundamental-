@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    android:padding="@dimen/padding"
-    android:orientation="vertical"
-    tools:context=".activity.DetailActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".activity.DetailActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -17,6 +22,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marginTop"
 
 
             android:src="@drawable/ic_launcher_background"
@@ -24,40 +30,18 @@
 
         </de.hdodenhof.circleimageview.CircleImageView>
 
-    <TextView
-        style="@style/TextContent.Small"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1"
-        android:text="@string/name"
-        android:gravity="center"
-        android:id="@+id/tv_name"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-
-        />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="6dp"
-        >
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp">
-
-        <net.steamcrafted.materialiconlib.MaterialIconView
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            app:materialIcon ="briefcase"
-            app:materialIconColor ="@android:color/black"
-            app:materialIconSize="12dp"
+        <TextView
+            style="@style/TextContent.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1"
+            android:text="@string/name"
+            android:gravity="center"
+            android:id="@+id/tv_name"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginBottom="@dimen/marginBottom"
 
             />
         <TextView
@@ -65,154 +49,193 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingMultiplier="1"
-            android:text="@string/company"
-            android:id="@+id/tv_company"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="@string/bio"
+            android:id="@+id/tv_bio"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="@dimen/marginBottom"
             android:textSize="12sp"
             />
 
-    </TableRow>
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp">
-
-
-    <net.steamcrafted.materialiconlib.MaterialIconView
-        android:layout_width="32dp"
-        android:layout_height="40dp"
-        app:materialIcon ="home"
-        app:materialIconColor ="@android:color/black"
-        app:materialIconSize="12dp"
-        />
-
-    <TextView
-        style="@style/TextContent.Small"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1"
-        android:text="@string/location"
-        android:id="@+id/tv_location"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="12sp"
-
-        />
-
-
-    </TableRow>
-    </TableLayout>
-
-
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        android:background="@android:color/darker_gray"/>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-     android:layout_margin="@dimen/padding"
-        android:gravity="center"
-        >
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:id="@+id/tv_repository"
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="2"
-            android:text="@string/repository"
-            android:textAlignment="center"
-            style="@style/TextContent.Small"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:padding="4dp"
+            >
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
 
-        <TextView
-            android:id="@+id/tv_followers"
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    app:materialIcon ="briefcase"
+                    app:materialIconColor ="@android:color/black"
+                    app:materialIconSize="12dp"
+
+                    />
+                <TextView
+                    style="@style/TextContent.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1"
+                    android:text="@string/company"
+                    android:id="@+id/tv_company"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="12sp"
+                    />
+
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <net.steamcrafted.materialiconlib.MaterialIconView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    app:materialIcon ="home"
+                    app:materialIconColor ="@android:color/black"
+                    app:materialIconSize="12dp"
+                    />
+
+                <TextView
+                    style="@style/TextContent.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1"
+                    android:text="@string/location"
+                    android:id="@+id/tv_location"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="12sp"
+
+                    />
+
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/followers"
-            android:layout_marginEnd="5dp"
-            android:textAlignment="center"
-            style="@style/TextContent.Small"
-            android:textStyle="bold"
-            android:textSize="24sp" />
+            android:gravity="center"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:padding="4dp"
+            >
 
-        <TextView
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/following"
-            android:textAlignment="center"
-            android:id="@+id/tv_following"
-            style="@style/TextContent.Small"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
-    </TableRow>
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="8dp">
+            <TextView
+                android:id="@+id/tv_repository"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="2"
+                android:text="@string/repository"
+                android:textAlignment="center"
+                style="@style/TextContent.Small"
+                android:textStyle="bold"
+                android:textSize="24sp"/>
 
-        <TextView
-            style="@style/TextContent.Subtitle"
+            <TextView
+                android:id="@+id/tv_followers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/followers"
+                android:layout_marginEnd="5dp"
+                android:textAlignment="center"
+                style="@style/TextContent.Small"
+                android:textStyle="bold"
+                android:textSize="24sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/following"
+                android:textAlignment="center"
+                android:id="@+id/tv_following"
+                style="@style/TextContent.Small"
+                android:textStyle="bold"
+                android:textSize="24sp"/>
+        </TableRow>
+
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="2"
-            android:textAlignment="center"
-            android:text="@string/txt_repository"
-            android:textSize="14sp"/>
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
 
-        <TextView
-            style="@style/TextContent.Subtitle"
+            <TextView
+                style="@style/TextContent.Subtitle"
 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:textAlignment="center"
+                android:text="@string/txt_repository"
+                android:textSize="14sp"/>
+
+            <TextView
+                style="@style/TextContent.Subtitle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textAlignment="center"
+
+                android:text="@string/txt_followers"
+                android:textSize="14sp"/>
+
+            <TextView
+                style="@style/TextContent.Subtitle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textAlignment="center"
+
+                android:text="@string/txt_following"
+                android:textSize="14sp"/>
+
+
+        </TableRow>
+        </TableLayout>
+
+
+
+        <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:textAlignment="center"
+            android:background="?attr/colorPrimary"
+            android:id="@+id/tabs"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginBottom="@dimen/marginBottom"
+            app:tabTextColor="@android:color/white"/>
 
-            android:text="@string/txt_followers"
-            android:textSize="14sp"/>
-
-        <TextView
-            style="@style/TextContent.Subtitle"
-
+        <androidx.viewpager2.widget.ViewPager2
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:textAlignment="center"
+            android:layout_height="match_parent"
 
-            android:text="@string/txt_following"
-            android:textSize="14sp"/>
-
-
-    </TableRow>
-    </TableLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+            android:id="@+id/view_pager"/>
 
 
 
-</LinearLayout>
+    </LinearLayout>
 
+
+</androidx.core.widget.NestedScrollView>

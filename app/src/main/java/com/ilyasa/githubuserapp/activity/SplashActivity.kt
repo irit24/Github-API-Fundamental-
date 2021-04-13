@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.ilyasa.githubuserapp.R
 import com.ilyasa.githubuserapp.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

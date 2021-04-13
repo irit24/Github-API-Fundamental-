@@ -32,5 +32,13 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="ToolbarWhite" parent="Theme.GithubUserApp">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 </resources>

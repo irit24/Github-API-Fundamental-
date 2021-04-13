@@ -1,64 +1,71 @@
 package com.ilyasa.githubuserapp.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.ilyasa.githubuserapp.R
+import com.bumptech.glide.request.RequestOptions
 import com.ilyasa.githubuserapp.data.User
-import com.ilyasa.githubuserapp.databinding.ItemUserBinding
+import com.ilyasa.githubuserapp.databinding.ItemUsersBinding
 import java.lang.StringBuilder
 
 /**
  * Created by Ilyasa Ridho
 on 18,March,2021
  */
-class UserAdapter internal  constructor(private  val  context: Context): BaseAdapter() {
-    internal var users = arrayListOf<User>()
 
-    override fun getCount(): Int {
 
-        return users.size
+
+class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+    private var onItemClickCallback: OnItemClickCallback? = null
+    private  val mData = ArrayList<User>()
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
     }
 
-    override fun getItem(position: Int): Any {
-        return users[position]
-    }
-
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-
-    }
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var itemView = convertView
-        if (itemView == null) {
-            itemView = LayoutInflater.from(context).inflate(R.layout.item_user, parent, false)
-        }
-        val viewHolder = ViewHolder(itemView as View)
-        val user = getItem(position) as User
-        viewHolder.bind(user)
-        return itemView
-    }
-
-    private inner class ViewHolder constructor(view: View) {
-
-        private val binding = ItemUserBinding.bind(view)
+    inner class UserViewHolder(private val binding: ItemUsersBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) {
-            binding.tvItemUsername.text = StringBuilder("@${user.username}")
-            binding.tvItemName.text = user.name
-            binding.tvItemCompany.text = user.company
+            with(binding){
+                Glide.with(itemView.context)
+                        .load(user.avatar_url)
+                        .apply(RequestOptions().override(55,55))
+                        .into(imgUser)
+                tvItemUsername.text = StringBuilder("@${user.username}")
+                tvItemUrl.text = user.link
+                itemView.setOnClickListener{onItemClickCallback?.onItemClicked(user)}
 
-            Glide.with(context)
-                .load(user.avatar)
-                .into(binding.imgUser)
-
-
+            }
 
         }
 
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+        val binding = ItemUsersBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return UserViewHolder(binding)
+
+
+    }
+
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        holder.bind(mData[position])
+    }
+
+    override fun getItemCount(): Int {
+        return mData.size
+
+    }
+
+    fun setData(items: ArrayList<User>){
+        mData.clear()
+        mData.addAll(items)
+        notifyDataSetChanged()
+    }
+
+    interface OnItemClickCallback {
+
+        fun onItemClicked(data: User)
+    }
 }
+
